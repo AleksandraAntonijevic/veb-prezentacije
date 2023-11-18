@@ -9,14 +9,25 @@
     <tr>
         <td>First name</td>
         <td>Last name</td>
-        <td>IMDB score</td>
+        <td>Adress</td>
+        <td>IMDB</td>
+        <td>Oscar</td>
+        <td>Bafta</td>
+
+
+
     </tr>
     @foreach (Actor act in filmCrew)
     {
         <tr>
             <td>@act.FirstName</td>
             <td>@act.LastName</td>
+            <td>@act.Adress.Street <br/> 
+                    @act.Adress.PostalCode @act.Adress.City <br/>
+                    @act.Adress.State</td>
             <td>@act.ImdbMark</td>
+            <td>@act.NumberOfOscars</td>
+            <td>@act.NumberOfBafars</td>
         </tr>
     }
 </table>
@@ -58,7 +69,13 @@
 
     protected override async Task OnInitializedAsync()
     {
-        filmCrew[0] = movieStar1;
+        filmCrew[0] = NEW Actor()
+        {
+            FirstName = "John",
+            LastName = "Goodman",
+            ImdbMark = 9.7
+            NumberOfOscars
+        }
         filmCrew[1] = movieStar2;
         filmCrew[2] = theBadGuy;
     }

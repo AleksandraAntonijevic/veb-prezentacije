@@ -1,6 +1,6 @@
 namespace DSS.Models2
 {
-    public class Adress
+    public class PostalAdress
     {
 
         public string Street = "";

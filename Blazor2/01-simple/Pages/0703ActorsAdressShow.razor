@@ -28,11 +28,12 @@
             <td>@act.ImdbMark</td>
             <td>@act.NumberOfOscars</td>
             <td>@act.NumberOfBafars</td>
+            <td><button @onclick="AverageIMDB">Average IMDB</button></td>
         </tr>
     }
 </table>
 <br />
-<button @onclick="AverageIMDB">Average IMDB</button>
+<button @onclick="AverageIMDB">Say</button>
 <br />
 @if (showResult)
 {
@@ -42,6 +43,8 @@
     private bool showResult = false;
 
     private double avgIMDB;
+
+    private string message = "";
 
     private Actor movieStar1 = new Actor()
         {
@@ -79,6 +82,11 @@
         filmCrew[1] = movieStar2;
         filmCrew[2] = theBadGuy;
     }
+
+    private void Bragging(){
+        message = filmCrew[0].Bragging();
+    }
+
 
     private void AverageIMDB()
     {
